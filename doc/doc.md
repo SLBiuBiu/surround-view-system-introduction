@@ -264,6 +264,8 @@ class MultiBufferManager(object):
 
 你需要注意修改相机设备号，以及 OpenCV 打开摄像头的方式。usb 相机可以直接用 `cv2.VideoCapture(i)` (`i` 是 usb 设备号) 的方式打开，csi 相机则需要调用 `gstreamer` 打开，对应的代码在[这里](https://github.com/neozhaoliang/surround-view-system-introduction/blob/master/surround_view/utils.py#L5)和[这里](https://github.com/neozhaoliang/surround-view-system-introduction/blob/master/surround_view/capture_thread.py#L75)。
 
+关于相机设备号，如果你使用的是USB相机，由于USB上电顺序的不同，可能会造成每次重启之后相机设备号的不同，导致每次都要重新修改。如果相机的VID或者PID不同，你可以试着根据ID的不同来重定向设备号。
+
 
 # 附录：项目各脚本一览
 
